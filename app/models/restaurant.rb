@@ -12,6 +12,10 @@ class Restaurant < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :user_reviews,
+             :through => :reviews,
+             :source => :user
+
   has_many   :tags,
              :through => :descriptors,
              :source => :tag
