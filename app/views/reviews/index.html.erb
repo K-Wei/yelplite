@@ -22,8 +22,20 @@
         <td><%= review.num_stars %></td>
         <td><%= review.content %></td>
         <td><img src='<%= review.photos %>' class='img-responsive'></td>
-        <td><%= review.user.email %></td>
-        <td><%= review.restaurant.name %></td>
+        <td>
+          <% if review.user.present? %>
+            <a href="/users/<%= review.user.id %>">
+              <%= review.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if review.restaurant.present? %>
+            <a href="/restaurants/<%= review.restaurant.id %>">
+              <%= review.restaurant.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
           
